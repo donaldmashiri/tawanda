@@ -1,23 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-lg-7 col-md-12">
+                    <!-- support-section start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card support-bar overflow-hidden">
+                                <div class="card-body pb-0">
+                                    <h2 class="m-0">Profile</h2>
+                                    <img class="" src="{{ asset('assets/images/user.png') }}" width="100" height="100">
+
+                                    <span class="text-c-dark font-weight-bolder h4"> Tawanda Nyafesa</span>
+                                    <p class="mb-3 text-c-blue mt-3"><i class="fa fa-envelope"></i> tawanda@gmail.com</p>
+                                    <p class="mb-3  mt-3"><i class="fa fa-phone"></i> 12345678</p>
+                                    <p class="mb-3  mt-3"><i class="fa fa-map"></i> Senga Nehosho</p>
+                                </div>
+                                <div id="support-chart"></div>
+                                <div class="card-footer bg-primary text-white">
+                                    <div class="row text-center">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
+                    </div>
+                    <!-- support-section end -->
                 </div>
+
             </div>
+            <!-- [ Main Content ] end -->
         </div>
     </div>
-</div>
 @endsection

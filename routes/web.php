@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-//    return view('auth.login');
-    return view('/welcome');
+    return view('auth.login');
+//    return view('/welcome');
 });
 
 Route::get('/chat', function () { return view('/chat'); });
 Route::get('/profile', function () { return view('/profile'); });
-Route::get('/topics', function () { return view('/topics'); });
+//Route::get('/topics', function () { return view('/topics'); });
 Route::get('/rateusers', function () { return view('/rateusers'); });
 Route::get('/userpoints', function () { return view('/userpoints'); });
 Route::get('/reports', function () { return view('/reports'); });
+
+Route::resource('topics', \App\Http\Controllers\TopicController::class);
+Route::resource('comments', \App\Http\Controllers\CommentsController::class);
 
 Auth::routes();
 

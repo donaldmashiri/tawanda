@@ -54,7 +54,7 @@
                     <a href="/chat" class="nav-link "><span class="pcoded-micon"><i class="feather icon-compass"></i></span><span class="pcoded-mtext">Chat</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/topics" class="nav-link "><span class="pcoded-micon"><i class="feather icon-share"></i></span><span class="pcoded-mtext">Topics</span></a>
+                    <a href="{{ route('topics.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-share"></i></span><span class="pcoded-mtext">Topics</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="/rateusers" class="nav-link "><span class="pcoded-micon"><i class="feather icon-radio"></i></span><span class="pcoded-mtext">Rate Users</span></a>
