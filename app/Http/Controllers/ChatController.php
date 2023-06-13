@@ -2,30 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chat;
+use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return view('chat');
+        return view('chats.index')
+            ->with('chats', Chat::all())
+            ->with('users', User::all());
     }
 
-    public function sendMessage(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         $request->validate([
-            'message' => 'required|string|max:255',
+            'sender_id' => ['required', 'string', 'max:255'],
+            'receiver_id' => ['required', 'string', 'max:255'],
         ]);
 
-        $user = auth()->user();
+        Chat::create([
+            "sender_id" => Auth::user()->id,
+            "receiver_id" => request('receiver_id'),
+            "message" => request('message'),
+        ]);
 
-        $message = new Message();
-        $message->user_id = $user->id;
-        $message->content = $request->input('message');
-        $message->save();
+        return redirect()->back()->with('success', 'Message Sent');
 
-        event(new ChatMessage($user, $message));
+    }
 
-        return response()->json(['status' => 'success']);
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

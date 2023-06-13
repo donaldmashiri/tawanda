@@ -12,7 +12,6 @@
                 </div>
 
                 <div class="card-body">
-                    <p class="alert alert-danger">Password Fields Do not Match</p>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
