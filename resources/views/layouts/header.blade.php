@@ -50,9 +50,11 @@
                 <li class="nav-item">
                     <a href="/profile" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Profile</span></a>
                 </li>
+                @if(Auth::user()->role === "admin")
                 <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
+                    <a href="{{ route('users.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-list"></i></span><span class="pcoded-mtext">Reports</span></a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('chats.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-compass"></i></span><span class="pcoded-mtext">Chat</span></a>
                 </li>
