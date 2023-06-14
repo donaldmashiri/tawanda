@@ -23,8 +23,6 @@ class User extends Authenticatable
         'password',
     ];
 
-
-
     public function topics()
     {
         return $this->hasMany(Topic::class);

@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chat;
+use App\Models\Comment;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ChatController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-//        return view('chats.index')
-//            ->with('chats', Chat::all());
+        $users = User::all();
+        $usersTotal = User::count();
+        $topicsTotal = Topic::count();
+        $commentsTotal = Comment::count();
 
-        return view('chats.index')
-            ->with('chats', Chat::orderBy('created_at', 'desc')->get());
+        return view('users.index', compact('usersTotal','users', 'commentsTotal','topicsTotal'));
 
+//        return view('users.index')->with('users', User::all());
     }
 
     /**
@@ -28,7 +29,7 @@ class ChatController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -36,19 +37,7 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'user_id' => ['required', 'string', 'max:255'],
-            'message' => ['required', 'string', 'max:255'],
-        ]);
-
-        Chat::create([
-            "user_id" => Auth::user()->id,
-//            "receiver_id" => request('receiver_id'),
-            "message" => request('message'),
-        ]);
-
-        return redirect()->back()->with('success', 'Message Sent');
-
+        //
     }
 
     /**

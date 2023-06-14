@@ -22,12 +22,14 @@ Route::get('/', function () {
 Route::get('/profile', function () { return view('/profile'); });
 //Route::get('/topics', function () { return view('/topics'); });
 Route::get('/rateusers', function () { return view('/rateusers'); });
-Route::get('/userpoints', function () { return view('/userpoints'); });
+Route::get('/users', function () { return view('/users'); });
 Route::get('/reports', function () { return view('/reports'); });
 
 Route::resource('topics', \App\Http\Controllers\TopicController::class);
 Route::resource('comments', \App\Http\Controllers\CommentsController::class);
 Route::resource('chats', \App\Http\Controllers\ChatController::class);
+Route::resource('rateusers', \App\Http\Controllers\RateUserController::class);
+Route::resource('users', \App\Http\Controllers\UsersController::class);
 
 Auth::routes();
 

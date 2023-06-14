@@ -2,26 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class RateUserController extends Controller
 {
-    public function calculateRating()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $users = User::all();
+        $topics = Topic::withCount('comments')
+            ->orderBy('comments_count', 'desc')
+            ->get();
 
-        foreach ($users as $user) {
-            $posts = Post::where('user_id', $user->id)->get();
-            $rating = 0;
+        return view('rateusers.index', compact('topics'));
 
-            foreach ($posts as $post) {
-                $rating += $post->upvotes;
-            }
+//        return view('')->with('topics', Topic::all());
+    }
 
-            $user->rating = $rating;
-            $user->save();
-        }
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
 
-        return redirect()->back()->with('success', 'User ratings calculated successfully.');
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

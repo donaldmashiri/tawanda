@@ -51,13 +51,16 @@
                     <a href="/profile" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Profile</span></a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('chats.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-compass"></i></span><span class="pcoded-mtext">Chat</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('topics.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-share"></i></span><span class="pcoded-mtext">Topics</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/rateusers" class="nav-link "><span class="pcoded-micon"><i class="feather icon-radio"></i></span><span class="pcoded-mtext">Rate Users</span></a>
+                    <a href="{{ route('rateusers.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-radio"></i></span><span class="pcoded-mtext">Rate Users</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="/userpoints" class="nav-link "><span class="pcoded-micon"><i class="feather icon-plus"></i></span><span class="pcoded-mtext">User Points</span></a>
