@@ -37,7 +37,7 @@
                 <div class="main-menu-header">
                     <img class="img-radius" src="{{ asset('assets/images/user.png') }}" alt="User-Profile-Image">
                     <div class="user-details">
-                        <div id="more-details">Tawanda Nyafesa</div>
+                        <div id="more-details">{{ Auth::user()->name }}</div>
                     </div>
                 </div>
 
@@ -67,10 +67,15 @@
 
             <div class="card text-center">
                 <div class="card-block">
-                    <a href="/login" target="_blank" class="btn btn-danger btn-sm text-white m-0">Logout</a>
+                    <a href="{{ route('logout') }}" target="_blank" class="btn btn-danger btn-sm text-white m-0"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-fw fa-reply"></i> {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
-
         </div>
     </div>
 </nav>

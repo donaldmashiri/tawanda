@@ -16,8 +16,8 @@ class ChatController extends Controller
     public function index()
     {
         return view('chats.index')
-            ->with('chats', Chat::all())
-            ->with('users', User::all());
+            ->with('chats', Chat::orderBy('created_at', 'desc')->get());
+
     }
 
     /**
@@ -34,13 +34,13 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sender_id' => ['required', 'string', 'max:255'],
-            'receiver_id' => ['required', 'string', 'max:255'],
+            'user_id' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string', 'max:255'],
         ]);
 
         Chat::create([
-            "sender_id" => Auth::user()->id,
-            "receiver_id" => request('receiver_id'),
+            "user_id" => Auth::user()->id,
+//            "receiver_id" => request('receiver_id'),
             "message" => request('message'),
         ]);
 

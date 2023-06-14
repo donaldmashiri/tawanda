@@ -33,7 +33,7 @@
                                                     <h6>{{ $topic->topic_name }}</h6>
                                                     <p class="text-muted m-b-0">{{ $topic->topic_description }}</p>
                                                 </a>
-                                                <p class="text-muted m-b-0 float-right font-weight-bolder">{{ Auth::user()->name }}</p>
+                                                <p class="text-muted m-b-0 float-right font-weight-bolder">{{ $topic->user->name }}</p>
                                             </div>
                                         </div>
                                         <hr>
